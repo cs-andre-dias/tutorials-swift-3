@@ -423,3 +423,27 @@ var newDayOfWeek = NewDayOfWeek()
 newDayOfWeek[0]
 
 
+
+//Delegate
+
+protocol Cook {
+    func makingfood()
+}
+
+struct Mom: Cook {
+    func makingfood() {
+        print("Pizza coming soon!")
+    }
+}
+
+var mom = Mom()
+mom.makingfood()
+
+struct Baby {
+    var delegate: Cook?
+}
+
+var babe = Baby()
+babe.delegate = mom
+
+babe.delegate?.makingfood()
